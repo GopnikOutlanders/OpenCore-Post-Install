@@ -39,7 +39,7 @@ If your BIOS is a Insyde or InsydeH2O BIOS, you may notice that if you are tryin
 * Reboot but go into your UEFI BIOS Utility
   * Windows Boot Manager will be at top of the list now.
   * OpenCore should be below it, use the key associated to moving entries up or down, and move OpenCore so it is above Windows Boot Manager.
-14. Reboot and OpenCore should boot normally with Windows as an option.
+* Reboot and OpenCore should boot normally with Windows as an option.
 
 Once this is done, as long as OpenCore continues to boot from this point on, OpenCore will remain at the top of the list.  But do realize any BIOS updates, NVRAM resets, etc will wipe the entry from the list, and Windows Boot Manager will take over.  If this happens just follow the steps above again.
 
