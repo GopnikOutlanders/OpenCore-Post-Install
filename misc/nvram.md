@@ -75,7 +75,7 @@ And within your config.plist:
   * `OpenVariableRuntimeDxe.efi`: `LoadEarly` set to `True`
   * `OpenRuntime.efi`: `LoadEarly` set to `True`
 
-Now grab the ['LogoutHook'](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) folder and place it somewhere safe (e.g. within your user directory, as shown below):
+Now grab the [LogoutHook](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) folder and place it somewhere safe (e.g. within your user directory, as shown below):
 
 `/Users/$(whoami)/LogoutHook/`
 
