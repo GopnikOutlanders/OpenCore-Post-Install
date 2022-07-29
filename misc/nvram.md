@@ -87,6 +87,7 @@ cd /Users/$(whoami)/LogoutHook/
 ./Launchd.command install daemon
 ./Launchd.command install logout
 ```
+
 Replace `/Users/$(whoami)/LogoutHook/` with your path (if you placed it in another path)
 
 And voila! You have emulated NVRAM!
