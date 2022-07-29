@@ -47,40 +47,48 @@ nvram -p | grep -i myvar
 
 If nothing returns then your NVRAM is not working. If a line containing `myvar test` returns, your NVRAM is working.
 
-Note: `nvram -c` requires SIP to be off, an alternative is to wipe NVRAM at the boot menu. Reminder you'll need `Misc -> Security -> AllowNvramReset -> YES`
+Note: `nvram -c` requires SIP to be off, an alternative is to wipe NVRAM at the boot menu. Reminder you'll need to have the `AllowNvramReset.efi` driver from OpenCorePkg in your Drivers folder and `config.plist -> UEFI -> Drivers`.
 
 ## Enabling emulated NVRAM (with a nvram.plist)
 
-To enable emulated NVRAM, you'll need 3 things set:
+To enable emulated NVRAM, you will need to configure several things in your EFI and config.plist
+
+Within your EFI:
+
+* `OpenRuntime.efi` driver (this is needed for proper sleep, shutdown and other services to work correctly)
+* `OpenVariableRuntimeDxe.efi` driver (this is needed for enabling emulated NVRAM functionality - already included with OpenDuet (legacy BIOS only) systems)
+
+And within your config.plist:
 
 ![](../images/post-install/nvram-md/nvram.png)
 
-Within your config.plist:
-
 * **Booter**:
-  * `DisableVariableWrite`: set to `NO`
+  * `DisableVariableWrite`: set to `False`
 * **Misc -> Security**:
-  * `ExposeSensitiveData`: set to `0x3`
+  * `ExposeSensitiveData`: set to `0x1`
 * **NVRAM**:
-  * `LegacyEnable`: set to `YES`
-  * `LegacyOverwrite` set to `YES`
-  * `LegacySchema`: NVRAM variables set(OpenCore compares these to the variables present in nvram.plist)
-  * `WriteFlash`: set to `YES`
+  * `LegacyOverwrite` set to `True`
+  * `LegacySchema`: NVRAM variables set (OpenCore compares these to the variables present in nvram.plist)
+  * `WriteFlash`: set to `True`
+* **UEFI**:
+  * `OpenVariableRuntimeDxe.efi`: loaded before `OpenRuntime.efi` (`OpenRuntime.efi`'s entry needs to have a number higher than the one of `OpenVariableRuntimeDxe.efi`'s entry)
+  * `OpenVariableRuntimeDxe.efi`: `LoadEarly` set to `True`
+  * `OpenRuntime.efi`: `LoadEarly` set to `True`
 
-And within your EFI:
+Now grab the ['LogoutHook'](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) folder and place it somewhere safe (e.g. within your user directory, as shown below):
 
-* `OpenRuntime.efi` driver(this is needed for proper sleep, shutdown and other services to work correctly
+`/Users/$(whoami)/LogoutHook/`
 
-Now grab the ['LogoutHook.command'](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) and place it somewhere safe (e.g. within your user directory, as shown below):
+Open up terminal and run the following (one at a time):
 
-`/Users/$(whoami)/LogoutHook/LogoutHook.command`
-
-Open up terminal and run the following:
-
-`sudo defaults write com.apple.loginwindow LogoutHook /Users/$(whoami)/LogoutHook/LogoutHook.command`
+```sh
+cd /Users/$(whoami)/LogoutHook/
+./Launchd.command install
+./Launchd.command install daemon
+./Launchd.command install logout
+```
+Replace `/Users/$(whoami)/LogoutHook/` with your path (if you placed it in another path)
 
 And voila! You have emulated NVRAM!
 
-Do keep in mind this requires the `nvram` command to support the `-x` flag for this to work correctly which is unavailable on macOS 10.12 and below. If you are installing macOS 10.12 or earlier, you need to copy `nvram.mojave` into the same folder as `LogoutHook.command`, which fixes this by invoking it instead of the system `nvram` command.
-
-Something else to note is that macOS is only able to read nvram.plist but it won't be able to write to nvram.plist unless running the shutdown process. This means running the test above won't work
+The Launchd.command script will now run on every shutdown/reboot of your machine and write any NVRAM changes done to the `EFI/NVRAM/nvram.plist`.
