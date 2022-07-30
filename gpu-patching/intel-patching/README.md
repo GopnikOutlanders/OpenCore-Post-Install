@@ -24,7 +24,7 @@ Before we jump too deep into this rabbit hole, we should first explain what we'r
 **Basic topics**:
 
 * [AAPL,ig-platform-id explainer](#aapl-ig-platform-id-explainer)
-* [device-id explainer](#device-id-explainer)
+* [device-id explainer](README.md/#device-id-explainer)
 
 ### AAPL,ig-platform-id explainer
 
