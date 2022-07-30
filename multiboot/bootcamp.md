@@ -75,7 +75,7 @@ Once all is finished, you now have BootCamp switching! There should be a little 
 
 * [Can't find Windows/BootCamp drive in picker](#cant-find-windowsbootcamp-drive-in-picker)
 * ["You can't change the startup disk to the selected disk" error](#you-cant-change-the-startup-disk-to-the-selected-disk-error)
-* [Booting Windows results in BlueScreen or Linux crashes](#booting-windows-results-in-bluescreen-or-Linux-crashes)
+* [Booting Windows results in BlueScreen or Linux crashes](bootcamp.md/#booting-windows-results-in-bluescreen-or-Linux-crashes)
 * [Booting Windows error: `OCB: StartImage failed - Already started`](#booting-windows-error-ocb-startimage-failed---already-started)
 * [Windows Startup Disk can't see APFS drives](#windows-startup-disk-cant-see-apfs-drives)
 

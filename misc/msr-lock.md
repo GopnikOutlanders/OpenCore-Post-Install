@@ -28,8 +28,8 @@ Note: Penyrn based machines actually don't need to worry about unlocking this re
 Before proceeding with the rest of this guide, you'll first need to check if your firmware supports CFG Lock unlocking.
 To check it, you can proceed into two ways:
 
-1. [Use the DEBUG version of OpenCore and check what the log says about CFG Lock](#checking-via-opencore-logs)
-2. [Use a tool called `ControlMsrE2` which will speed up the whole checking process](#checking-via-ControlMsrE2)
+1. [Use the DEBUG version of OpenCore and check what the log says about CFG Lock](msr-lock.md/#checking-via-opencore-logs)
+2. [Use a tool called `ControlMsrE2` which will speed up the whole checking process](msr-lock.md/#checking-via-ControlMsrE2)
 
 ### Checking via OpenCore logs
 

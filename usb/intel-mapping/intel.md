@@ -4,7 +4,7 @@
 
 Table of Contents:
 
-* [Intel USB Mapping](#Intel-usb-mapping)
+* [Intel USB Mapping](intel.md/#Intel-usb-mapping)
 
 So with the prerequisites out of the way, we can finally get to the meat of this guide. And now we get to finally read one of my favorite books before I go to bed each night: [The Advanced Configuration and Power Interface (ACPI) Specification!](https://uefi.org/specs/ACPI/6.4/)
 

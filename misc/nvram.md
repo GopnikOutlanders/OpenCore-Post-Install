@@ -62,7 +62,7 @@ And within your config.plist:
 
 ![](../images/post-install/nvram-md/nvram.png)
 
-* **Booter**:
+* **Booter -> Quirks**:
   * `DisableVariableWrite`: set to `False`
 * **Misc -> Security**:
   * `ExposeSensitiveData`: set to `0x1`
@@ -70,12 +70,12 @@ And within your config.plist:
   * `LegacyOverwrite` set to `True`
   * `LegacySchema`: NVRAM variables set (OpenCore compares these to the variables present in nvram.plist)
   * `WriteFlash`: set to `True`
-* **UEFI**:
+* **UEFI -> Drivers**:
   * `OpenVariableRuntimeDxe.efi`: loaded before `OpenRuntime.efi` (`OpenRuntime.efi`'s entry needs to have a number higher than the one of `OpenVariableRuntimeDxe.efi`'s entry)
   * `OpenVariableRuntimeDxe.efi`: `LoadEarly` set to `True`
   * `OpenRuntime.efi`: `LoadEarly` set to `True`
 
-Now grab the [LogoutHook](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) folder and place it somewhere safe (e.g. within your user directory, as shown below):
+Now grab the [LogoutHook folder](https://github.com/acidanthera/OpenCorePkg/releases)(Inside `/Utilities/LogoutHook/`) and place it somewhere safe (e.g. within your user directory, as shown below):
 
 `/Users/$(whoami)/LogoutHook/`
 

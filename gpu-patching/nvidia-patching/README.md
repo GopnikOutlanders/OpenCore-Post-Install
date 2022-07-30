@@ -54,7 +54,7 @@ With Nvidia GPUs, there's actually not too many properties required for setup. T
 And to calculate the properties few properties:
 
 * [model](#model)
-* [VRAM,totalsize](#vram-totalsize)
+* [VRAM,totalsize](README.md/#vram-totalsize)
 * [rom-revision](#rom-revision)
 * [NVCAP](#nvcap)
 
