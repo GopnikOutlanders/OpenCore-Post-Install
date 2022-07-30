@@ -63,7 +63,7 @@ Things to keep in mind:
 
 Here we have 2 sections:
 
-* [Mapping within macOS](#mapping-withinb-macos)
+* [Mapping within macOS](#mapping-within-macos)
   * You can boot macOS and use at least 1 display
 * [Mapping without macOS](#mapping-without-macos)
   * Blackscreen on all displays
@@ -95,7 +95,7 @@ To resolve, we'll want to patch it to something more appropriate(ie. `0204` to `
 There are 2 ways to patch:
 
 * [Replace the entire entry](#replace-the-entire-entry)
-* [Replace sections of the entry](#replace-sectons-of-the-entry)
+* [Replace sections of the entry](#replace-sections-of-the-entry)
 
 #### Replace the entire entry
 
