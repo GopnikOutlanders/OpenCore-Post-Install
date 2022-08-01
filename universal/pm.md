@@ -128,7 +128,7 @@ What we'll need:
 * Ensure CpuPm and Cpu0Ist tables are **NOT** dropped
 * [ssdtPRGen](https://github.com/Piker-Alpha/ssdtPRGen.sh)
 
-Initialing with OpenCore's setup in the Ivy Bridge section, we recommended users drop their CpuPm and Cpu0Ist to avoid any issues with AppleIntelCPUPowerManagement.kext. But dropping these tables have the adverse affect of breaking turbo boost in Windows. So to resolve this, we'll want to keep our OEM's table but we'll want to add a new table to supplement data only for macOS. So once we're done creating our CPU-PM table, we'll re-add our OEM's CPU SSDTs.
+Initially with OpenCore's setup in the Ivy Bridge section, we recommended users drop their CpuPm and Cpu0Ist to avoid any issues with AppleIntelCPUPowerManagement.kext. But dropping these tables have the adverse affect of breaking turbo boost in Windows. So to resolve this, we'll want to keep our OEM's table but we'll want to add a new table to supplement data only for macOS. So once we're done creating our CPU-PM table, we'll re-add our OEM's CPU SSDTs.
 
 To start, grab your config.plist then head to ACPI -> Delete and ensure both of these sections have `Enabled` set to YES:
 

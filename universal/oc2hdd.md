@@ -20,11 +20,13 @@ Now with this done, lets mount our macOS drive. With macOS Catalina, macOS is ac
 
 When you mount your main drive's EFI, you may be greeted with a folder called `APPLE`, this is used for updating the firmware on real Macs but has no effect on our hardware. You can wipe everything on the EFI partition and replace it with the one found on your USB
 
-## Special note for InsydeH2O BIOS users
+## Special note for Insyde/H2O BIOS users
 
-If your BIOS is a Insyde or InsydeH2O BIOS, you may notice that trying to dual boot Windows & macOS you will only see `Windows Boot Manager` as a viable option after copying your OpenCore to your internal drive.  This is due to the way Insyde blocks booting from `EFI/BOOT/BOOTX64.EFI` and the only workaround is to add an entry to your UEFI Boot Menu via NVRAM.  To do this, follow the steps outlined below:
+If your BIOS is a Insyde or InsydeH2O BIOS, you may notice that while attempting to dual boot Windows & macOS only `Windows Boot Manager` is a viable option after copying your OpenCore to your internal drive.  This is due to the way Insyde blocks booting from `EFI/BOOT/BOOTX64.EFI` and the only workaround is to add an entry to your UEFI Boot Menu via NVRAM.  To do this, follow the steps outlined below:
 
-**NOTICE**: This will temporarily prevent Windows from booting until completed.  Do **NOT** delete `bootmgfw.efi` if you plan on dual-booting.
+**Note**: This assumes that you are back in Windows and starts from there.
+
+**Warning**: This will temporarily prevent Windows from booting until completed.  Do **NOT** delete `bootmgfw.efi` if you plan on dual-booting.
 
 * Access your EFI via administrative console (Admin Terminal) while in Windows, or use Explorer++
 * Rename the `bootmgfw.efi` file under `EFI/Microsoft` to something you can remember, but it cannot have .efi at the end)
@@ -44,7 +46,7 @@ If your BIOS is a Insyde or InsydeH2O BIOS, you may notice that trying to dual b
   * OpenCore should be below it, use the key associated to moving entries up or down, and move OpenCore so it is above Windows Boot Manager.
 * Reboot and OpenCore should boot normally with Windows as an option.
 
-**NOTICE**: Cleaning your NVRAM, updating your BIOS, and restoring your BIOS to factory defaults will wipe this entry from your list, as the entry is added via NVRAM.
+**Note**: Cleaning your NVRAM, updating your BIOS, and restoring your BIOS to factory defaults will wipe this entry from your list, as the entry is added via NVRAM.
 
 ## Special notes for legacy users
 

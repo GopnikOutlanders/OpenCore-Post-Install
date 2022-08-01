@@ -150,14 +150,14 @@ We’re sorry, but this serial number isn’t valid |  Valid Purchase date | Pur
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](../images/post-install/iservices-md/not-valid.png) | ![](../images/post-install/iservices-md/valid.png) |  ![](../images/post-install/iservices-md/no-purchase.png)
 
-This last one is what we're after, as we want something genuine but currently not in use by anyone. Now we can translate the rest of the values into our config.plist -> PlatformInfo -> Generic:
+What you want to look for is the first image, which should come easily.  The last image is fine, but is not recommended as it can cause issues down the line if another machine with the same serial is activated (See Note 2 below). Now we can translate the rest of the values into our config.plist -> PlatformInfo -> Generic:
 
 - Type = SystemProductName
 - Serial = SystemSerialNumber
 - Board Serial = MLB
 - SmUUID = SystemUUID
 
-**Note**:  "We’re sorry, but this serial number isn’t valid. Please check your information and try again." works for many users as well, do note though if you've had a bad track record with Apple/iServices you many need one that's "Purchase Date not Validated". Otherwise there may be suspicion
+**Note**:  "We’re sorry, but this serial number isn’t valid. Please check your information and try again." works for many users as well, and should be used first before the other option.  However this can still cause issues if you've been flagged by Apple in the past and can raise further suspicion.
 
 **Note 2**: Using a "Purchase Date not Validated:" can cause issues down the line if another machine of the same serial ever gets activated, for initial setup it can help alleviate issues with your account but in the long run an invalid serial can be a safer choice.
 
